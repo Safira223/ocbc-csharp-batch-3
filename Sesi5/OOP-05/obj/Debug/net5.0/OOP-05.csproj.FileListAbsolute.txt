@@ -1,0 +1,16 @@
+C:\Users\ASUS\Desktop\C#\Sesi5\OOP-05\obj\Debug\net5.0\OOP-05.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\C#\Sesi5\OOP-05\obj\Debug\net5.0\OOP-05.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\Desktop\C#\Sesi5\OOP-05\obj\Debug\net5.0\OOP-05.AssemblyInfoInputs.cache
+C:\Users\ASUS\Desktop\C#\Sesi5\OOP-05\obj\Debug\net5.0\OOP-05.AssemblyInfo.cs
+C:\Users\ASUS\Desktop\C#\Sesi5\OOP-05\obj\Debug\net5.0\OOP-05.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\C#\Sesi5\OOP-05\bin\Debug\net5.0\OOP-05.exe
+C:\Users\ASUS\Desktop\C#\Sesi5\OOP-05\bin\Debug\net5.0\OOP-05.deps.json
+C:\Users\ASUS\Desktop\C#\Sesi5\OOP-05\bin\Debug\net5.0\OOP-05.runtimeconfig.json
+C:\Users\ASUS\Desktop\C#\Sesi5\OOP-05\bin\Debug\net5.0\OOP-05.runtimeconfig.dev.json
+C:\Users\ASUS\Desktop\C#\Sesi5\OOP-05\bin\Debug\net5.0\OOP-05.dll
+C:\Users\ASUS\Desktop\C#\Sesi5\OOP-05\bin\Debug\net5.0\ref\OOP-05.dll
+C:\Users\ASUS\Desktop\C#\Sesi5\OOP-05\bin\Debug\net5.0\OOP-05.pdb
+C:\Users\ASUS\Desktop\C#\Sesi5\OOP-05\obj\Debug\net5.0\OOP-05.dll
+C:\Users\ASUS\Desktop\C#\Sesi5\OOP-05\obj\Debug\net5.0\ref\OOP-05.dll
+C:\Users\ASUS\Desktop\C#\Sesi5\OOP-05\obj\Debug\net5.0\OOP-05.pdb
+C:\Users\ASUS\Desktop\C#\Sesi5\OOP-05\obj\Debug\net5.0\OOP-05.genruntimeconfig.cache

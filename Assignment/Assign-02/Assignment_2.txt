@@ -1,0 +1,177 @@
+Nama : Hafizah Safira Kaurani
+Kode Peserta : FSDO003ONL001
+Assignment 2 (Office Database)
+
+1. Customers => stores data customer
+
+SQL Query :
+
+create table customers (
+customerNumber int primary key,
+customerName varchar(125),
+contactLastName varchar(50),
+contactFirstName varchar(50),
+phone int,
+addressLine1 varchar(30),
+addressLine2 varchar(30),
+city varchar (25),
+state varchar(25),
+postalCode int,
+country varchar(20),
+employeeNumber int,
+creditLimit int,
+foreign key (employeeNumber) references employees (employeeNumber));
+
+insert into customers values 
+('501','Sabri Alim','Sabri','Alim','83728378','Jl. Arjuna','Kebon Jeruk','Jakarta Barat','DKI Jakarta','38499','Indonesia','401','30000'),
+('502','Rachmat Efendi','Rachmat','Efendi','87264849','Jl. Sudimara','Kemanggisan','Jakarta Barat','DKI Jakarta','38499','Indonesia','401','25000'),
+('503','Saefudin Zuhri','Saefudin','Zuhri','82537388','Jl. Pelopor','Jagakarsa','Jakarta Selatan','DKI Jakarta','46837','Indonesia','402','12000');
+('504','Nono','Nono','Nurohmat','81273849','Jl. Alpukat','Bintaro','Jakarta Selatan','DKI Jakarta','48297','Indonesia','403','16000');
+2. Products => stores daftar/list model product ( dalam hal ini bisa mobil/motor dll )
+
+SQL Query:
+
+create table products (
+productCode int primary key,
+productName varchar(50),
+productLine int,
+productScale int,
+productVendor varchar(50),
+productDescription varchar(200),
+quantityInStock int,
+buyPrice int(20),
+msrp int(20),
+foreign key (productLine) references productlines (productLine));
+
+insert into products values 
+('201','Kijang','101','4','astra','berkualitas','20','200000000','1600000'),
+('202','Agya','101','5','astra','sporty','15','460000000','3500000'),
+('203','Avanza','101','2','astra','simple','100','38000000','120000'),
+('204','Jazz','102','3','honda','simple','250','300000000','6100000'),
+('205','Pajero','105','5','mitsubishi','sporty','10','960000000','8000000');
+
+3. Productlines => stores daftar/list kategori product
+
+SQL Query:
+
+create table productlines (
+productLine int primary key,
+textDescription varchar(100),
+htmlDescription varchar(100),
+image varchar(50));
+insert into productlines values ('101','Toyota','toyota.html','kijang.jpg'),
+('102','Honda','honda.html','honda.jpg'),
+('103','Nissan','nissan.html','nissan.jpg'),
+('104','Suzuki','suzuki.html','suzuki.jpg');
+('105','Mitsubishi','mitsubishi.html','mitsubishi.jpg');
+
+4. Orders => store Order Sales oleh customer
+
+SQL Query :
+
+create table orders (
+orderNumber int primary key,
+orderDate date,
+requiredDate date,
+shippedDate date,
+status varchar(50),
+comments varchar(100),
+customerNumber int,
+foreign key (customerNumber) references customers (customerNumber));
+
+insert into orders values 
+('601','2022-03-24','2022-03-25','2022-04-12','bagus','kualitas oke','504'),
+('602','2022-03-25','2022-03-31','2022-04-20','dimodifikasi','tampilan bagus','502'),
+('603','2022-03-26','2022-03-28','2022-04-16','aman','bagus','502');
+
+
+
+
+
+
+
+
+5. OrderDetails => store Item Order sales dalam setiap order sales
+
+SQL Query :
+
+create table orderdetails (
+orderNumber int,
+productCode int,
+quantityOrdered int,
+priceEach int(20),
+orderLineNumber int,
+foreign key (orderNumber) references orders (orderNumber));
+
+alter table orderdetails add foreign key (productCode) references products(productCode);
+
+insert into orderdetails values 
+('601','202','2','2000000','20'),
+('602','205','1','6500000','22'),
+('603','204','1','1400000','24');
+
+6. Payments => store Pembayaran oleh customer sesuai dengan akun pembayaran
+
+SQL Query :
+
+create table payments (
+checkNumber int primary key,
+customerNumber int,
+paymentDate date,
+amount int(20),
+foreign key (customerNumber) references customers (customerNumber));
+
+
+
+insert into payments values 
+('701','504','2022-04-26','2000000'),
+('702','503','2022-04-28','3600000'),
+('703','502','2022-04-30','6500000');
+
+7. Employee => store informasi karyawan dalam sebuah organisasi struktur
+
+SQL Query :
+
+create table employees (
+employeeNumber int primary key,
+firstName varchar(50),
+lastName varchar(50),
+email varchar(20),
+officeCode int,
+reportsTo varchar(100),
+jobTitle varchar(50),
+extension varchar(15),
+foreign key (officeCode) references offices (officeCode));
+
+insert into employees values 
+('401','Hafizah','Safira','fira@gmail.com','302','Direktur','Manajer','ada'),
+('402','Devira','Asha','asha@gmail.com','302','Asisten','Manajer','tidak ada'),
+('403','Galih','Briantoro','galih@gmail.com','301','Gudang','Asisten','ada'),
+('404','Haikal','Ramadhan','haikal@gmail.com','303','Gudang','Asisten','tidak ada');
+
+
+
+
+
+
+
+8. Offices => store data sales office
+
+SQL Query :
+
+create table offices(
+officeCode int primary key,
+cityOffice varchar (25),
+phoneOffice int,
+addressOffice1 varchar(30),
+addressOffice2 varchar(30),
+stateOffice varchar(25),
+postal_code int,
+territory varchar(20),
+countryOffice varchar(20));
+
+insert into offices values 
+('301','Jakarta Barat','81239389','Jl.Sudirman','Kebon Jeruk','DKI Jakarta','48929','20 hektar','Indonesia'),
+('302','Tangerang Selatan','82134896','Jl. Mangga','BSD','Banten','46573','10 hektar','Indonesia'),
+('303','Jakarta Pusat','813748989','Jl.Prambanan','Senayan','DKI Jakarta','37493','10 hektar','Indonesia'),
+('304','Bandung','812738378','Jl.Dago Atas','Dago','Jawa Barat','36487','25 hektar','Indonesia');
