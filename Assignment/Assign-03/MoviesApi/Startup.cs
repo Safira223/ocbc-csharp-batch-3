@@ -11,8 +11,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
+using MoviesApi.Data;
 
-namespace WeatherTest
+namespace MoviesApi
 {
     public class Startup
     {
@@ -30,8 +32,12 @@ namespace WeatherTest
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WeatherTest", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MoviesApi", Version = "v1" });
             });
+            services.AddDbContext<ApiDbContext>(options =>
+                options.UseSqlite(
+                    Configuration.GetConnectionString("DefaultConnection")
+            ));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,10 +46,9 @@ namespace WeatherTest
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MoviesApi v1"));
             }
-
-            app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WeatherTest v1"));
 
             app.UseHttpsRedirection();
 

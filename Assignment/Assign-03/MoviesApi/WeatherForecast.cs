@@ -1,6 +1,6 @@
 using System;
 
-namespace WeatherTest
+namespace MoviesApi
 {
     public class WeatherForecast
     {
